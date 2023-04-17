@@ -7,13 +7,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import dj_database_url
+if os.path.isfile("env.py"):
+    import env
 import os
 from pathlib import Path
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
-import dj_database_url
-if os.path.isfile("env.py"):
-    import env
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +44,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     'blog',
 ]
