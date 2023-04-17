@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 import dj_database_url
 if os.path.isfile("env.py"):
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(SETTINGS_PATH, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
